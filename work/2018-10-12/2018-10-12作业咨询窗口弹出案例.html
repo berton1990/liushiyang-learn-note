@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2018-10-12作业咨询窗口弹出案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: pink;
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.zx{
+			position: fixed;
+			right: 50px;
+			bottom: 200px;
+			width: 38px;
+			height: 118px;
+			background-color: pink;
+		}
+		
+		.zx .zx-type{
+			width: 100%;
+			height: 38px;
+			background-repeat: no-repeat;
+			background-position: center;
+			cursor: pointer;
+		}
+		.zx .qq{
+			background-color: #6872BA;
+			background-image: url(img/qq.png);
+		}
+		.zx .wx{
+			background-color: #33AF2D;;
+			background-image: url(img/wx.png);
+		}
+		.zx .go-top{
+			margin-top: 4px;
+			background-color: #646464;
+			background-image: url(img/up.png);
+		}
+		.zx .qq{
+			position: relative;
+			left: 0;
+			top: 0;
+		}
+		.zx .qq-detail{
+			display: none;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 170px;
+			min-height: 200px;
+			background-color: green;
+		}
+		.zx .qq:hover .qq-detail{
+			display: block;
+		}
+		.zx .zx-title{
+			position: relative;
+			width: 100%;
+			height: 40px;
+			background-color: #6872BA;
+			color:#fff;
+			font-size: 14px;
+			line-height: 40px;
+			text-indent: 20px;
+		}
+	    .zx .zx-title .close{
+	    	position: absolute;
+	    	right: 20px;
+	    	top: 11px;
+	    	display: block;
+	    	width: 18px;
+	    	height: 18px;
+	    	font-size: 16px;
+	    	text-align: center;
+	    	line-height: 18px;
+	    	font-weight: bolder;
+	    	color: #fff;
+	    	text-indent: 0;
+	    	transition: all ease .4s;
+	    }
+	    .zx .zx-title .close:hover{
+	    	transform: rotate(360deg);
+	    }
+	    .zx .qq-detail .item{
+	    	width: 100%;
+	    	height: 40px;
+	    	font-size: 14px;
+	    	color: #333;
+	    	line-height: 40px;
+	    	text-indent: 50px;
+	    	background-repeat: no-repeat;
+	    	background-position: 20px; 
+	    }
+	    .zx .qq-detail .teacher1{
+	    	background-color: #E8E8E8;
+	    }
+	    .zx .qq-detail .teacher2{
+	    	background-color: #F3F3F3;
+	    }
+	    .zx .qq-detail .teacher1,
+	    .zx .qq-detail .teacher2{
+	    	background-image: url(img/item-qq.png);
+	    }
+	    .zx .tel{
+	    	background-color: #fff;
+	    	background-image: url(img/tel.png);
+	    }
+	    .zx .qq-detail .tel-number{
+	    	text-indent: 20px;
+	    	line-height: 30px;
+	    	background-color: #fff;
+	    }
+	    .zx .qq-detail .teacher1:hover,
+	    .zx .qq-detail .teacher2:hover{
+	    	color: #fff;
+	    	background-color: #000;
+	    	background-image: url(img/qq.png);
+	    }
+	    .zx .ewm{
+			position: fixed;
+			display: none;
+			right: 88px;
+			bottom: 240px;
+			width: 150px;
+			height: 150px;
+			background-image: url(img/ewm.png);
+		}
+		.wx:hover .ewm{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="zx">
+		<div class="qq zx-type">
+			<ul class="qq-detail">
+				<li class="zx-title">在线咨询<a href="#" class="close">X</a></li>
+				<li class="teacher1 item">张老师</li>
+				<li class="teacher2 item">王老师</li>
+				<li class="tel item">联系方式</li>
+				<li class="tel-number item">0371-12345678</li>
+			</ul>
+		</div>
+		<div class="wx zx-type">
+			<div class="ewm"></div>
+		</div>
+		<div class="go-top zx-type"></div>
+	</div>
+</body>
+</html>

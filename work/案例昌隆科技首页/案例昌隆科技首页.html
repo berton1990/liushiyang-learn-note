@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案例昌隆科技首页</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font: 16px/1.2 '微软雅黑';
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			color: #333;
+		}
+		/*清除浮动影响*/
+		.clr{
+			clear: both;
+		}
+		.head{
+			/*网页顶部样式*/
+			width: 100%;
+			height: 135px;
+			color: #969696;
+			background-color: #fff;
+		}
+		/*网页顶部内上半部分样式*/
+		.head .head-top{
+			width: 100%;
+			height: 37px;
+			background-color: #2e3139;
+		}
+		/*网页内部上半部分版心样式*/
+		.head .head-top-c{
+			position: relative;
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+		}
+		/*网页顶部内上半部分标签提示文字样式*/
+		.head .welcome,
+		.head .setting a{
+			font-size: 14px;
+			color: #969696;
+			line-height: 37px;
+		}
+		/*网页顶部内上半部分标签右侧提示文字位置*/
+		.head .setting{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		/*网页顶部内下半部分样式*/
+		.head .head-bottom{
+			width: 100%;
+			height: 98px;
+		}
+		/*网页顶部内下半部分版心样式*/
+		.head .head-bottom-c{
+			position: relative;
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		/*网页顶部内下半部分logo样式*/
+		.head .head-bottom .logo{
+			display: block;
+			width: 180px;
+			height: 57px;
+			margin-top: 22px;
+			background: url(img3/logo.png);
+		}
+		/*网页顶部内下半部分导航位置*/
+		.head .head-bottom .nav{
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+		}
+		/*网页顶部内下半部分导航样式*/
+		.head .head-bottom .nav-item{
+			position: relative;
+			float: left;
+			height: 100%;
+			width: 68px;
+			margin-left: 48px;
+		}
+		/*将导航文字转换成块状元素*/
+		.head .head-bottom .nav-item a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			font-size: 16px;
+			color: #5a5a5a;
+			line-height: 98px;
+		}
+		/*导航文字下方下划线样式*/
+		.head .nav .under-line{
+			display: none;
+			position: absolute;
+			left: 0;
+			bottom: 29px;
+			width: 100%;
+			height: 2px;
+			background-color: #1669ad;
+		}
+		/*标识位*/
+		.head .nav .nav-item.active a{
+			color: #1669ad;
+		}
+		.head .nav .nav-item.active .under-line{
+			display: block;
+		}
+		/*banner部分*/
+		/*banner样式*/
+		.banner{
+			width: 100%;
+			height: 400px;
+			background-color: #0b3764;
+		}
+		/*banner版心样式*/
+		.banner .banner-c{
+			position: relative;
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		/*banner轮播图样式,*/
+		.banner .banner-imgs{
+			/*所有图片的总长度*/
+			width: 2000px;
+			height: 100%;
+		}
+		/*banner轮播单个显示的长度*/
+		.banner .banner-imgs .banner-img-item{
+			float: left;
+			width: 1000px;
+			height: 100%;
+		}
+		/*banner轮播点样式*/
+		.banner .dot{
+			position: absolute;
+			left: 0;
+			bottom: 12px;
+			height: 4px;
+		}
+		/*banner轮播点位置*/
+		.banner .dot .dot-item{
+			float: left;
+			width: 24px;
+			height: 100%;
+			margin-right: 7px;
+			background-color: #d1d1d1;
+		}
+		/*将轮播点内的a标签转换块状元素*/
+		.banner .dot .dot-item a{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		/*将轮播点设置颜色*/
+		.banner .dot .dot-item.acitve{
+			background-color: #4280ba;
+		}
+		/*内容部分开始*/
+		.container{
+			width: 100%;
+			/*高度不写*/
+		}
+		/*内容部分版心样式*/
+		.container .container-c{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		/*产品标题栏样式*/
+		.container .products{
+			width: 100%;
+			margin-top: 28px;
+		}
+		/*公共部分*/
+		.container .title{
+			position: relative;
+			width: 100%;
+			height: 40px;
+			border-bottom: 1px solid #cfcfcf;
+			background-color: #fff;
+		}
+		/*重要:块状元素垂直据中的另一种方式;*/
+		/*产品中心文字头部小点位置*/
+		.container .title .dotts{
+			position: absolute;
+			left: 2px;
+			top: 50%;
+			width: 6px;
+			height: 16px;
+			margin-top: -8px;
+		}
+		/*产品中心文字头部小点样式*/
+		.container .title .dotts span{
+			display: block;
+			width: 100%;
+			height: 6px;
+			background-color: #11589d;
+		}
+		/*两个小点之间的距离*/
+		.container .title .dotts .span2{
+			margin-top: 4px;
+		}
+		/*文字颜色,行高*/
+		.container .title .lang-cn,
+		.container .title .lang-en{
+			color: #5a5a5a;
+			line-height: 40px;
+		}
+		/*中文字体样式*/
+		.container .title .lang-cn{
+			font-size: 18px;
+			font-weight: bolder;
+			margin-left: 23px;
+		}
+		/*英文字体样式*/
+		.container .title .lang-en{
+			font-size: 15px;
+			margin-left: 20px;
+		}
+		/*产品简介-更多-样式*/
+		.container .title .more{
+			position: absolute;
+			right: 0;
+			bottom: 5px;
+			width: 53px;
+			height: 20px;
+			background-color: #ededed;
+			border: 1px solid #cfcfcf;
+			font-size: 14px;
+			color: #5a5a5a;
+			text-align: center;
+			line-height: 20px;
+			/*边缘-半径(圆角)*/
+			border-radius: 4px;
+		}
+		/*产品简介图片展示区域*/
+		.container .products .products-imgs{
+			width: 100%;
+			margin-top: 15px;
+		}
+		/*图片列表漂浮*/
+		.container .products .product-item{
+			float: left;
+			width: 244px;
+			margin-left: 8px;
+		}
+		/*左侧第一张图片位置*/
+		.container .products .product-item.margin-left-none{
+			margin-left: 0px;
+		}
+		/*图片大小边缘大小*/
+		.container .products .product-item img{
+			width: 234px;
+			height: 140px;
+			border: 5px solid #fff;
+		}
+		/*图片介绍文字样式*/
+		.container .product-item .pname{
+			font-size: 15px;
+			text-align: center;
+			color: #3a3a3a;
+			line-height: 38px;
+		}
+		.container .company{
+			width: 100%;	
+			margin-top: 20px;
+		}
+		.container .company-profile img{
+			width: 300px;
+			height: 170px;
+			margin-top: 15px;
+		}
+		.container .company-profile .z1,.z2,.z3{
+			text-indent: 2em;
+		}
+		.container .company-profile .z1{
+			font-weight: bolder;
+			line-height: 34px;
+			padding-top: 14px;
+		}
+		.container .company-profile .z2,.z3{
+			position: relative;
+			width: 980px;
+			right: 0px;
+			font-size: 14px;
+			line-height: 23px;
+			left: 26px;
+		}
+		.container .container-bottom{
+			position: relative;
+			top: 30px;
+			width: 100%;
+			height: 150px;
+			/*background-color: pink;*/
+		}
+		.container .container-bottom .contact{
+			width: 300px;
+		}
+		.container .container-bottom .news{
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 675px;
+		}
+		.container .container-bottom .detailed{
+			font-size: 15px;
+			line-height: 30px;
+		}
+		.container .container-bottom .news .rq{
+			font-size: 15px;
+			line-height: 30px;
+		}
+		.container .container-bottom .news .xq{
+			position: absolute;
+			right: 0;
+		}
+		.container .container-bottom .news a:hover{
+			color: red;
+			text-decoration:underline;
+		}
+		.footer{
+			position: relative;
+			margin-top: 100px;
+			width: 100%;
+			height: 200px;
+			color: #969696;
+			background-color: #2e3139;
+		}
+		.footer .footer-c{
+			width: 1000px;
+			height: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+        }
+        .footer .footer-c .wz,.wz2{
+        	margin-top: 20px;
+        	font-size: 14px;
+        	line-height: 30px;
+        	color: #fff;
+        	text-align: center;
+        }
+        .footer a:hover{
+			color: #E21C19;
+			text-decoration: underline;
+		}
+		.footer a{
+			color: #fff;
+		}
+		.zx{
+			position: fixed;
+			right: 120px;
+			bottom: 300px;
+			width: 143px;
+			height: 183px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<!-- 网页顶部 -->
+	<div class="head">
+		<!-- 网页顶部内上半部分 -->
+		<div class="head-top">
+			<!-- 网页内部上半部分提示版心 -->
+			<div class="head-top-c">
+				<p class="welcome">欢迎莅临河南省巩义市昌隆精化有限公司！</p>
+				<div class="setting">
+					<a href="#">设为首页</a>
+					|
+					<a href="#">收藏本站</a>
+				</div>
+			</div>
+		</div>
+		<!-- 网页顶部内下半部分 -->
+		<div class="head-bottom">
+			<!-- 网页顶部内下半部分版心 -->
+			<div class="head-bottom-c">
+				<!-- 网页顶部内下半部分logo -->
+				<a href="#" class="logo"></a>
+				<!-- 网页顶部内下半部分导航列表 -->
+				<ul class="nav">
+					<li class="nav-item active">
+						<a href="#">首页</a>
+						<!-- 导航下划线 -->
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item">
+						<a href="#">公司简介</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item">
+						<a href="#">产品中心</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item">
+						<a href="#">新闻动态</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item">
+						<a href="#">诚聘英才</a>
+						<span class="under-line"></span>
+					</li>
+					<li class="nav-item">
+						<a href="#">联系我们</a>
+						<span class="under-line"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 网页banner部分 -->
+	<div class="banner">
+		<!-- banner版心 -->
+		<div class="banner-c">
+			<!-- banner轮播图 -->
+			<ul class="banner-imgs">
+				<li class="banner-img-item"><img src="img3/banner1.jpg" alt=""></li>
+				<li class="banner-img-item"><img src="img3/banner2.jpg" alt=""></li>
+			</ul>
+			<!-- banner轮播图轮播点 -->
+			<ul class="dot">
+				<li class="dot-item acitve"><a href="#"></a></li>
+				<li class="dot-item"><a href="#"></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 网页内容部分 -->
+	<div class="container">
+		<!-- 内容部分版心 -->
+		<div class="container-c">
+			<!-- 头部产品中心 -->
+			<div class="products">
+				<div class="title">
+					<!-- 文字头部小点 -->
+					<div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					</div>
+					<span class="lang-cn">产品中心</span>
+					<span class="lang-en">PRODUCTS</span>
+					<a class="more" href="#">more</a>
+				</div>
+				<!-- 产品图片列表 -->
+				<ul class="products-imgs">
+					<li class="product-item margin-left-none">
+						<img src="img3/p-1.jpg" alt="">
+						<p class="pname">速溶硅酸钠/粉状硅酸钠</p>
+					</li>
+					<li class="product-item">
+						<img src="img3/p-2.jpg" alt="">
+						<p class="pname">水玻璃</p>
+					</li><li class="product-item">
+						<img src="img3/p-3.jpg" alt="">
+						<p class="pname">固体硅酸钠</p>
+					</li><li class="product-item">
+						<img src="img3/p-4.jpg" alt="">
+						<p class="pname">硅溶胶</p>
+					</li>
+					<li class="clr"></li>
+				</ul>
+			</div>
+			<!-- 公司简介部分 -->
+			<div class="company">
+				<div class="title">
+					<div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					</div>
+					<span class="lang-cn">公司简介</span>
+					<span class="lang-en">COMPANY PROFILE</span>
+					<a class="more" href="#">more</a>
+				</div>
+				<div class="company-profile">
+					<img src="img3/company.jpg" style="float: left;" alt="">
+					<div class="compony-text">
+						<p class="z1">河南省巩义市昌隆精化有限公司</p>
+					    <p class="z2"> 巩义市昌隆精化有限公司位于人杰地灵的杜甫故里巩义市，成立于1999年，经过近17年的不懈努力,我们已成为国内最专业的硅酸钠类产品生产厂家，郑州地区居同行业之首。</p>
+	                    <p class="z2">公司主要生产固体、液体、粉状、钾钠等多种规格的泡花碱，其中年生产固体2万吨以上，液体5万吨速溶硅酸钠千余吨，并可根据用户需要生产特殊规格的泡花碱。我们以稳定的产品质量、优质的服务赢得了广大客户的信赖和支持，产品畅销全国以及世界各个国家和地区。
+	                    公司在立足国内市场的同时，积极开拓国际市场。
+	                    目前产品已销往东南亚、欧洲等国家和地区。公司愿与有志之士协同合作，互利共赢！</p>
+					</div>
+					<div class="clr"></div>
+					
+				</div>
+			</div>
+			<div class="container-bottom">
+				<div class="contact">
+					<div class="title">
+					    <div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					    </div>
+					    <span class="lang-cn">联系我们</span>
+					    <span class="lang-en">CONTACT US</span>
+					    <p class="detailed">电&nbsp;&nbsp;话:&nbsp;&nbsp;&nbsp;0371-4124378</p>
+					    <p class="detailed">手&nbsp;&nbsp;机:&nbsp;&nbsp;&nbsp;13598855556(李经理)</p>
+					    <p class="detailed">传&nbsp;&nbsp;真:&nbsp;&nbsp;&nbsp;010-80210483</p>
+					    <p class="detailed">邮&nbsp;&nbsp;箱:&nbsp;&nbsp;&nbsp;clhg@163.com</p>
+					    <p class="detailed">地&nbsp;&nbsp;址:&nbsp;&nbsp;    &nbsp;河南省巩义市北山口汽车站南200米</p>
+					</div>
+				</div>
+				<div class="news">
+					<div class="title">
+					    <div class="dotts">
+						<span></span>
+						<span class="span2"></span>
+					    </div>
+					    <span class="lang-cn">新闻动态</span>
+					    <span class="lang-en">COMPANY NEWS</span>
+					    <a class="more" href="#">more</a>
+						<ul class="news-item">
+							<li class="rq"><a href="#">生产固体泡花碱销售前景如何</a><span class="xq">2017-10-18</span></li>
+							<li class="rq"><a href="#">密度模数对水玻璃的性能有什么影响</a><span class="xq">2018-10-18</span></li>
+							<li class="rq"><a href="#">硅酸钠水溶液的技术指标</a><span class="xq">2019-10-18</span></li>
+							<li class="rq"><a href="#">硅酸钠水溶液的技术指标</a><span class="xq">2020-10-18</span></li>
+							<li class="rq"><a href="#">硅酸钠水溶液的技术指标</a><span class="xq">2021-10-18</span></li>
+						</ul>
+				    </div>
+		       </div>
+	        </div>  
+	    </div>
+	<div class="footer">
+		<div class="footer-c">
+			<div class="wz">
+			<a href="#">公司介绍</a>
+			|
+			<a href="#">产品中心</a>
+			|
+			<a href="#">网站新闻</a>
+			|
+			<a href="#">留言系统</a>
+			|
+			<a href="#">联系我们</a>
+			|
+			<a href="#">网站地图</a>
+			</div>
+			<p class="wz2">河南省巩义市昌隆精化有限公司 &nbsp;&nbsp;&nbsp;&nbsp;公司地址:巩义市北山口汽车站南200米 &nbsp;&nbsp;&nbsp;&nbsp;手机:13598855556 </p>
+			<p class="wz2">电话:0371-4124378 &nbsp;&nbsp;&nbsp;&nbsp;邮箱:clhg@163.com &nbsp;&nbsp;&nbsp;&nbsp;网址:http://www.clphj.com</p>
+			<p class="wz2">豫ICP备12013179号-1</p>
+		</div>
+	</div>
+	<div class="zx">
+		<a href=""><img src="img3/zx.jpg" alt=""></a>
+	</div>
+</body>
+</html>

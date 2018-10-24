@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东登录页面</title>
+	<style>
+	    /*reset css 初始化样式*/
+	    /*京东红 E21C19*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*网页字体样式*/
+		body{
+			font: 16px/1.2 Arial,Verdana,"宋体";
+		}
+		/*清除列表头部小黑点*/
+		ul{
+			list-style: none;
+		}
+		/*清除a标签下滑线*/
+		a{
+			/*文字-下划线:无*/
+			color: #333;
+			text-decoration: none;
+		}
+		/*头部样式*/
+		.header{
+			width: 100%;
+			height: 80px;
+			background-color: #fff;
+		}
+		.header .header-c{
+			/*相对位置*/
+			position: relative;
+			width: 990px;
+			height: 100%;
+			margin: 0 auto;
+			/*溢出:隐藏;防止嵌套崩塌*/
+			overflow: hidden;
+		}
+		.header .header-c .logo{
+			/*浮动:左侧;*/
+			float: left;
+			/*显示:块;转换块状*/
+			display: block;
+			/*logo宽高*/
+			width: 170px;
+			height: 60px;
+			/*顶部距离*/
+			margin-top: 10px;
+			/*背景:背景图片位置;*/
+			background: url('img2/logo.png')
+			          /*图片不重复(平铺)居中*/
+			          no-repeat center;
+		}
+		.header .header-c .welcome{
+			/*字体:种类;*/
+			font-family: '微软雅黑';
+			/*漂浮:左侧;*/
+			float: left;
+            height: 100%;
+            font-size: 24px;
+            /*字体行高*/
+            line-height: 100px;
+            margin-left: 24px;
+		}
+		.header .header-c .ask{
+			/*位置:绝对;(绝对位置)*/
+			position: absolute;
+			/*距离右侧:位置*/
+			right: 0;
+			/*距离底部:位置;*/
+			bottom: 20px;
+			/*字体-大小:数值;*/
+			font-size: 14px;
+			/*ask内的字体颜色*/
+			color: #999;
+			/*字体-缩进:数值;*/
+            text-indent: 22px;
+            /*背景:背景图片位置;*/
+            background: url(img2/q-icon.png)
+            /*图片不重复(平铺)居中;*/
+            no-repeat 0 2px;
+		}
+		.header .header-c .ask:hover{animation: 
+			/*鼠标悬浮时a标签字体颜色*/
+            color: #E21C19;
+            /*鼠标悬浮时a标签字体显示下划线*/
+            text-decoration: underline;
+		}
+		/*tip样式*/
+		/*3种实现方式: 1.vertical-align: middle;
+			2. 内容标签左右居中
+				a) 通过padding-left设置
+			3. 内容标签左右居中(转为行内块)
+				a) 通过padding-left
+				b) text-index: */
+	    .tip {
+	    	/*提示栏宽高*/
+	    	width: 100%;
+	    	height: 38px;
+	    	/*提示栏背景颜色*/
+	    	background-color:#FFF8F0; 
+	    	/*tip内的字体颜色*/
+	    	color: #999;
+	    	/*字体-大小:数值;*/
+	    	font-size: 12px;
+	    	/*字体-排序:居中;*/
+	    	text-align: center;
+	    	/*字体行高:数值;*/
+	    	line-height: 38px;
+	    }
+	    .tip .zc{
+	    	/*tip(提示部分)内a标签的颜色*/
+	    	color: #000;
+	    }
+	    .tip .zc:hover{
+	    	/*文字-下划线:显示;*/
+	    	text-decoration: underline;
+	    }
+	    .tip .icon-tips{
+	    	/*对tip(提示部分)内的图片和文字进行中间对齐*/
+	    	/*垂直-对齐:中间;*/
+	    	vertical-align: middle;
+	    	/*一般只会作用于行内块元素,跟其他元素的对齐方式*/
+	    }
+	    /*container内容部分样式*/
+	    .container{
+	    	/*页面内容部分宽高*/
+	    	width: 100%;
+	    	height: 475px;
+	    	/*页面内容部分背景色:颜色数值 图片位置 不平铺 居中;*/
+	    	background: #D91930 url(img2/bg.jpg) no-repeat center;
+	    }
+	    .container .container-c{
+	    	/*位置:相对;(相对位置)*/
+	    	position: relative;
+	    	/*内容页面版心宽高*/
+	    	width: 990px;
+	    	height: 100%;
+	    	/*边缘: 上下数值 左右自动;*/
+	    	margin: 0 auto;
+	    }
+	    .container .login-block{
+	    	/*登录框宽高位置*/
+	    	/*位置:绝对;(绝对位置)该位置针对的是父级container-c的位置*/
+	    	position: absolute;
+	    	right: 0;
+	    	top: 10px;
+	    	width: 346px;
+	    	/*height: 400px;*/
+	    	background-color: #fff;
+	    }
+	    .container .login-block .login-tab{
+	    	font-family: '微软雅黑';
+	    	width: 100%;
+	    	height: 55px;
+	    	/*a标签的边缘-底部:像素值 实线 颜色值;*/
+	    	border-bottom: 1px solid #f0f0f0;
+	    }
+	    .container .login-tab .login-tab-link{
+	    	/*a标签的文字*/
+	    	/*浮动:位置;*/
+	    	float: left;
+	    	/*转换块状元素*/
+	    	display: block;
+	    	/*块状元素宽高*/
+	    	width: 173px;
+	    	height: 18px;
+	    	margin-top: 19px;
+	    	font-size: 18px;
+	    	line-height: 18px;
+	    	text-align: center;
+	    }
+	    .container .login-tab-link .right-border{
+	    	/*登录框右侧-用户登录-块状元素的宽*/
+	    	width: 172px;
+	    	/*边缘-右侧:边缘像素 实线 颜色;*/
+	    	border-right: 1px solid #f0f0f0;
+	    }
+	    /*active(激活)和hover(悬停)样式是一样的*/
+	    .container .login-tab-link.active,
+	    .container .login-tab-link:hover{
+	    	/*字体-加粗:明显;*/
+	    	font-weight: bolder;
+	    	color: #E21C19;
+	    }
+	    .container .form{ 
+	    	/*表格的宽度*/
+	    	width: 100%;
+	    	margin-top: 30px;
+	    }
+	    .container .form .input-item{
+	    	/*表格内输入框一行的宽高*/
+	    	width: 304px;
+	    	height: 38px;
+	    	border: 1px solid #e5e5e5;
+	    	margin: 0 auto;
+	    	margin-bottom: 20px;
+	    }
+	    .container .form .input-item .icon{
+	    	/*输入框前方图标位置*/
+	    	float: left;
+	    	display: block;
+	    	width: 38px;
+	    	height: 100%;
+	    	border-right: 1px solid #e5e5e5;
+	    	background-image: url(img2/pwd-icons-new.png);
+	    	background-repeat: no-repeat;
+	    }
+	    .container .form .input-item input{
+	    	/*输入框的宽高样式*/
+	    	float: left;
+	    	width: 265px;
+	    	height: 100%;
+	    	text-indent: 20px;
+	    	/*去掉输入框默认边框*/
+	    	border: none;
+	    	/*用于去掉input输入框的获取焦点的默认样式*/
+	    	outline: none;
+	    	/*outline轮廓线*/
+	    }
+	    /*精灵图片处理/雪碧图
+			好处: 减少http请求,提高加载速度;
+			坏处: 如果更新图标,需要改代码;
+		*/
+		.container .form .username-item .icon{
+			/*用户名输入框前方图标*/
+			background-position: 0 0;
+		}
+		.container .form .password-item .icon{
+			/*密码输入框前方图标*/
+			background-position: -48px 0;
+		}
+		.container .form .forget{
+			/*忘记密码宽高位置*/
+			width: 100%;
+			height: 14px;
+			margin: 22px auto;
+			text-align: right;
+		}
+		.container .form .forget a{
+			/*忘记密码颜色位置*/
+			color: #333;
+			font-size: 12px;
+			margin-right: 20px;
+		}
+		.container .form .forget a:hover{
+			/*鼠标悬浮 忘记密码 时的样式*/
+			color: #E21C19;
+			text-decoration: underline;
+		}
+		.container .form .btn-login{
+			/*登录按钮位置颜色样式*/
+			display: block;
+			width: 304px;
+			height: 33px;
+			background-color: #E21C19;
+			margin: 0 auto;
+			font-size: 20px;
+			text-align: center;
+			line-height: 33px;
+			color: #fff;
+		}
+		/*登录框底部样式*/
+		.container .login-block .login-footer{
+			position: relative;
+			width: 100%;
+			height: 50px;
+			background-color: #FCFCFC;
+			margin-top: 30px;
+		}
+		.login-block .login-footer .qq-link,
+		.login-block .login-footer .wx-link{
+			position: relative;
+			float: left;
+			display: block;
+			height: 19px;
+			font-size: 14px;
+			margin-left: 20px;
+			padding-left: 20px;
+			margin-top: 15px;
+		}
+		.login-block .login-footer .qq-link:hover{
+			text-decoration: underline;
+		}
+		.login-block .login-footer .wx-link:hover{
+			text-decoration: underline;
+		}
+		.login-block .login-footer .wx-link{
+			margin-left: 0;
+		}
+		.login-block .login-footer .icon{
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 19px;
+			height: 19px;
+			background-color: pink;
+			background: url(img2/qq-wx.png) no-repeat;
+		}
+		.login-block .login-footer .qq-link .icon{
+			background-position: 0 0;
+		}
+		.login-block .login-footer .wx-link .icon{
+			margin-left: 0;
+			background-position: -19px 0;
+		}
+		.login-block .login-footer .split-line{
+			float: left;
+			display: block;
+			width: 1px;
+			height: 16px;
+			background-color: #999;
+			margin: 0 20px;
+			margin-top: 15px;
+		}
+		.login-block .login-footer .register{
+			position: absolute;
+			right: 20px;
+			top: 15px;
+			color: #E21C19;
+			font-size: 14px;
+			padding-left:20px;
+		}
+		.login-block .login-footer .register:hover{
+			text-decoration: underline;
+		}
+		.login-block .login-footer .register .reg-icon{
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 16px;
+			height: 16px;
+			background: url(img2/pwd-icons-new.png) 
+			no-repeat -104px -75px;
+		}
+		/*网页底部样式*/
+		.footer {
+			line-height: 50px;
+			font-size: 12px;
+			text-align: center;
+		}
+		.footer .split-line{
+			margin-right: 10px;
+			margin-left: 10px;
+		}
+		.footer a:hover{
+			color: #E21C19;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<!-- 头部部分 -->
+	<div class="header">
+	     <!-- 版心 -->
+	     <div class="header-c">
+	     	<!-- 一般logo图片都是能点击的 而且直接跳转到首页 seo优化 -->
+	     	<a href="http://www.jd.com" class="logo"></a>
+	     	<p class="welcome">欢迎登录</p>
+	     	<a href="#" class="ask">登录页面,调查问卷</a>
+	     </div>
+	</div>
+	<!-- 提示部分 -->
+	<div class="tip">
+		<!-- 行内元素/行内块元素 才能通过父类的"text-align:center"使其左右居中 -->
+		<img class="icon-tips" src="img2/icon-tips.png" alt="">
+		依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版 <a class="zc" href="#">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。
+	</div>
+	<!-- 页面部分 -->
+	<div class="container">
+		<div class="container-c">
+			<!-- 登录框 -->
+			<div class="login-block">
+				<div class="tip">
+					<img class="icon-tips" src="img2/icon-tips.png" alt="">
+					京东不会以任何理由要求您转账汇款，谨防诈骗。
+				</div>
+				<!-- 选项卡部分 -->
+				<div class="login-tab">
+					<a class=" login-tab-link right-border" href="#">扫码登录</a>
+					<a class=" login-tab-link active" href="#">账户登录</a>
+					<!-- active=作用 -->
+				</div>
+				<!-- 登录表单 -->
+				<form class="form" action="">
+					<!-- 表单内用户名输入框 -->
+					<div class="input-item username-item">
+						<!-- 用户名输入框前方图片位置 -->
+						<span class="icon"></span>
+						<!-- 使用placeholder输入框占位符 -->
+						<input type="text" placeholder="邮箱/电话/账户">
+					</div>
+					<!-- 表单内密码输入框 -->
+					<div class="input-item password-item">
+						<!-- 密码输入框前方图片位置 -->
+						<span class="icon"></span>
+						<input type="password" placeholder="密码">
+					</div>
+					<p class="forget">
+						<a href="#">忘记密码</a>
+					</p>
+					<a class="btn-login" href="#">登录</a>
+				</form>
+				<!-- 登录框底部 -->
+				<div class="login-footer">
+					<a href="#" class="qq-link">
+						<span class="icon"></span>QQ
+					</a>
+					<span class="split-line"></span>
+					<a href="#" class="wx-link">
+						<span class="icon"></span>微信
+					</a>
+					<a class='register' href="#"><span class="reg-icon"></span>立即注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 网页结尾 -->
+	<div class="footer">
+		<div>
+			<a href="#">关于我们</a>
+			<span class="split-line">|</span>
+			<a href="#">联系我们</a>
+			<span class="split-line">|</span>
+			<a href="#">人才入住</a>
+			<span class="split-line">|</span>
+			<a href="#">商家招聘</a>
+			<span class="split-line">|</span>
+			<a href="#">广告服务</a>
+			<span class="split-line">|</span>
+			<a href="#">手机京东</a>
+			<span class="split-line">|</span>
+			<a href="#">友情链接</a>
+			<span class="split-line">|</span>
+			<a href="#">销售联盟</a>
+			<span class="split-line">|</span>
+			<a href="#">京东社区</a>
+			<span class="split-line">|</span>
+			<a href="#">京东公益</a>
+			<span class="split-line">|</span>
+			<a href="#">English Site</a><br>
+			Copyright © 2004-2018  京东JD.com 版权所有
+		</div>
+	</div>
+</body>
+</html>

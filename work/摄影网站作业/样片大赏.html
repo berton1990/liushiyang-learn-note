@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样片大赏</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font: 16px/1.2 '微软雅黑';
+			height: 1850px;
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			color: #fff;
+		}
+		.head{
+			width: 100%;
+			height: 560px;
+			background-color: rgba(0.0.0.0);
+		}
+		.head .head-c{
+			width: 1200px;
+			height: 560px;
+			margin: 0 auto;
+			background-image: url(img4/banner-1.jpg);
+		}
+		.head .head-c .logo{
+			position: relative;
+			width: 120px;
+			height: 50px;
+			top: 18px;
+		}
+		.head .head-c .nav{
+			float: right;
+			height: 80px;
+		}
+		.head .head-c .nav-item{
+			position: relative;
+			float: left;
+			margin: 16px;
+			top: -60px;
+		}
+		.head .head-c .nav-item a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			color: #7c7c7c;
+			line-height: 80px;
+		}
+		.head-c .nav-item .under-line{
+			position: absolute;
+			display: none;
+			width: 100%;
+			height: 2px;
+			left: 0;
+			bottom: 20px;
+			background-color: #dd1717;
+		}
+		.head .nav .nav-item .under-line.active{
+			display: block;
+		}
+		.head-c .nav .nav-item .active{
+			color: #dd1717;
+		}
+		.container{
+			width: 100%;
+			height: 1100px;
+			background-color: #161616;
+		}
+		.container .container-c{
+			width: 1200px;
+			/*height: 1150px;*/
+			margin: 0 auto;
+			background-color: #161616;
+		}
+		.container .container-c .product-item{
+			position: relative;
+			color: #dd1717;
+			width: 100%;
+			height: 100%;
+			font-size: 24px;
+			top: 115px;
+			text-align: center;
+		}
+		.container .product-item .product-cn{
+			font-size: 14px;
+			color: #535252;
+		}
+		.container .product-item .hr1{
+			position: relative;
+			left: 300px;
+			top: 10px;
+			display: block;
+			width: 130px;
+			height: 2px;
+			background-color: #dd1717;
+		}
+		.container .product-item .hr2{
+			position: relative;
+			left: 800px;
+			top: -35px;
+			display: block;
+			width: 130px;
+			height: 2px;
+			background-color: #dd1717;
+		}
+		.container .container-c .class-item{
+			position: relative;
+			width: 1200px;
+			height: 100px;
+			left: 200px;
+			margin: 0 auto;
+			margin-top: 200px;
+		}
+		.container-c .class-item a{
+			display: block;
+			font-size: 14px;
+			color: #7c7c7c;
+			line-height: 20px;
+			border: 1px solid #7c7c7c;
+			margin: 15px;
+		}
+		.container-c .class-item .nav-item{
+			float: left;
+			width: 100px;
+			height: 100%;
+			text-align: center;
+		}
+		.container-c .class-item .nav2 .active{
+			color: #fff;
+			border: 1px solid #dd1717;
+			background-color: #dd1717;
+		}
+		.container-c .product-item .product-pic{
+			position: relative;
+			top: -100px;
+		}
+		.pages-item .nav3 .nav-item{
+			position: relative;
+			width: 1200px;
+			height: 100px;
+			left: 200px;
+			margin: 0 auto;
+			margin-top: 80px;
+		}
+		.container-c .pages-item a{
+			display: block;
+			width: 20px;
+			font-size: 14px;
+			color: #7c7c7c;
+			line-height: 20px;
+			margin: 10px;
+		}
+		.container-c .pages-item .nav-item{
+			float: left;
+			width: 100px;
+			height: 100%;
+			text-align: center;
+		}
+		.container-c .pages-item .nav3 .active{
+			color: #fff;
+			background-color: #dd1717;
+		}
+		.footer{
+			width: 100%;
+			height: 200px;
+			background-color: rgba(0.0.0.0);
+		}
+		.footer .footer-c{
+			width: 1200px;
+			height: 150px;
+			margin: 0 auto;
+		}
+		.footer .footer-c .company-name{
+			float: left;
+			width: 400px;
+			height: 150px;
+		}
+		.footer .footer-c .company-address{
+			float: left;
+			border: solid 1px #333;
+			border-top:none;
+			border-bottom:none;
+			width: 398px;
+			height: 150px;
+		}
+		.footer .footer-c .company-tel{
+			float: left;
+			width: 400px;
+			height: 150px;
+		}
+		.footer-c p{
+        	position: relative;
+        	top: 30px;
+        	left: 80px;
+        	font-size: 14px;
+			color: #333;
+			line-height: 28px;
+		}
+		.footer .footer-c .baidu{
+			position: relative;
+			left: 140px;
+			top: 40px;
+		}
+		.footer .footer-c .weixin{
+			position: relative;
+			left: 120px;
+			top: 40px;
+		}
+		.footer .footer-c .qq{
+			position: relative;
+			left: 100px;
+			top: 40px;
+		}
+		.footer .footer-c .weibo{
+			position: relative;
+			left: 80px;
+			top: 40px;
+		}
+		.footer-bottom{
+			position: relative;
+			top: -50px;
+			width: 100%;
+			height: 50px;
+			background-color:  #161616;
+		}
+		.footer-bottom .footer-bottom-c{
+			width: 1200px;
+			height: 50px;
+			margin: 0 auto;
+		}
+		.footer-bottom-c p{
+			text-align: center;
+			font-size: 14px;
+			line-height: 50px;
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+	<div class="head">
+		<div class="head-c">
+			<div class="logo">
+				<a href="#">
+					<img src="img4/logo-1.png" alt="">
+				</a>
+			</div>
+				<ul class="nav">
+				   <li class="nav-item"><a href="#">首页</a>
+				   <span class="under-line"></span>
+			       </li>
+			       <li class="nav-item"><a class="active" href="#">样片大宴</a>
+				   <span class="under-line active"></span>
+			       </li>
+			       <li class="nav-item"><a href="#">当季优惠</a>
+				   <span class="under-line"></span>
+			       </li>
+			       <li class="nav-item"><a href="#">旅拍 城市</a>
+				   <span class="under-line"></span>
+			       </li>
+			       <li class="nav-item"><a href="#">关于我们</a>
+				   <span class="under-line"></span>
+			       </li>
+			       <li class="nav-item"><a href="#">联系我们</a>
+				   <span class="under-line"></span>
+			       </li>
+			    </ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-c">
+			<div class="product-item">
+				<span class="hr1"></span>
+				<p class="product-en">Product</p>
+				<p class="product-cn">作品目录</p>
+				<span class="hr2"></span>
+			</div>
+			<div class="class-item">
+				<ul class="nav2">
+				   <li class="nav-item"><a href="#">全部</a>
+			       <li class="nav-item"><a class="active" href="#">冷艳大气</a>
+			       </li>
+			       <li class="nav-item"><a href="#">高贵典雅</a>
+			       </li>
+			       <li class="nav-item"><a href="#">复古时尚</a>
+			       </li>
+			       <li class="nav-item"><a href="#">可爱活泼</a>
+			       </li>
+			       <li class="nav-item"><a href="#">个性独特</a>
+			       </li>
+			       <li class="nav-item"><a href="#">颓废忧伤</a>
+			       </li>
+			       <li class="nav-item"><a href="#">甜蜜乖巧</a>
+			       </li>
+			    </ul>
+			</div>
+			<div class="product-item">
+				<div class="product-pic">
+					<a href="#"><img src="img4/pic-1.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-2.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-3.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-4.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-5.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-6.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-7.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-8.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-9.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-10.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-11.jpg" alt=""></a>
+					<a href="#"><img src="img4/pic-12.jpg" alt=""></a>
+				</div>
+			</div>
+			<div class="pages-item">
+				<ul class="nav3">
+				   <li class="nav-item"><a class="active" href="#">1</a>
+			       <li class="nav-item"><a href="#">2</a>
+			       </li>
+			       <li class="nav-item"><a href="#">3</a>
+			       </li>
+			       <li class="nav-item"><a href="#">4</a>
+			       </li>
+			       <li class="nav-item"><a href="#">5</a>
+			       </li>
+			       <li class="nav-item"><a href="#">...</a>
+			       </li>
+			       <li class="nav-item"><a href="#">9</a>
+			       </li>
+			       <li class="nav-item"><a href="#">></a>
+			       </li>
+			    </ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footer-c">
+			<div class="company-name">
+				<p>郑州镜界摄影服务工作室</p>
+				<a class="weibo" href="#"><img src="img4/weibo.png" alt=""></a>
+				<a class="qq" href="#"><img src="img4/qq.png" alt=""></a>
+				<a class="weixin" href="#"><img src="img4/weixin.png" alt=""></a>
+				<a class="baidu" href="#"><img src="img4/baidu.png" alt=""></a>
+			</div>
+			<span class="span"></span>
+			<div class="company-address">
+				<p>地址:郑州市郑东新区绿地中心6号楼<br>
+				   服务热线:0371-7981788<br>
+			       邮编:456333</p>
+			</div>
+			<span class="span"></span>
+			<div class="company-tel">
+				<p>手机:18236988754</p>
+				<p>邮箱:912754544@qq.com</p>
+				<p>QQ:91275444</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="footer-bottom-c">
+			<p>Copyright ©2010 ls1001.com, All rights reserved. 镜界传媒艺术有限公司 豫ICP备11028596号</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	<title>Document</title>
+	<style>
+		body{
+			background:#333;
+			color:#B7B7B7;
+			font-family:'微软雅黑';
+			font-size:16px;
+			font-weight:700;
+		}
+		.code{
+			position: fixed;
+			left: 50%;
+			top: 100px;
+			width:350px;
+			height: 260px;
+			margin-left:200px;
+			overflow:hidden;
+			overflow-y:auto;
+			box-sizing: border-box;
+			padding-bottom:30px;
+		}
+		*{
+			margin:0;
+			padding:0;
+		}
+		.main{
+			position: fixed;
+			left: 50%;
+			top: 100px;
+			width:350px;
+			height: 260px;
+			margin-left:-175px;
+			background-color: #4BDEFF;
+		}
+	</style>
+	<style id="pig_style">
+		
+	</style>
+</head>
+<body>
+	<!-- <img src="img/pig.jpg" alt=""> -->
+	<div class="main">
+		<div class="pig">
+			<div class="p-head">
+				<div class="ear ear-1"></div>
+				<div class="ear ear-2"></div>
+				<div class="face"></div>
+				<div class="eye-nose"></div>
+				<div class="eye"></div>
+				<div class="eye eye-2"></div>
+				<div class="nose"></div>
+
+				<div class="fen"></div>
+				<div class="nose-bottom"></div>
+				<div class="nose-top"></div>
+
+				<div class="mouth"></div>
+			</div>
+			<div class="body">
+				<div class="arm arm-l"></div>
+				<div class="arm arm-r"></div>
+				<p class="tail">9</p>
+			</div>
+			<div class="foot">
+				<div class="leg"></div>
+				<div class="leg leg-r"></div>
+			</div>
+		</div>
+		
+		<div class="grass">
+			<div class="flow f-1"></div>
+			<div class="flow f-2"></div>
+			<div class="flow f-3"></div>
+			<div class="flow f-4"></div>
+		</div>
+
+	</div>
+	<pre class="code">
+		
+	</pre>
+	<script>
+		const str = `
+	/*
+	*
+	*
+	==========================
+	+					     +
+	+  社会人出品，不凡学院  +
+	+                        +
+	==========================	
+	*
+	*
+	*/
+	/*
+	================>
+
+		整体位置
+
+		================>
+	*/
+	.pig{
+		position: relative;
+		z-index:99;
+	}
+	/*
+	================>
+
+		画个草地，背景为绿色
+
+		================>
+	*/
+	.grass{
+		position:absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 80px;
+		background-color: #30F861;
+	}
+	/*
+	================>
+
+		头部开始
+
+		================>
+	*/
+	.p-head{
+		position:relative;
+		width: 116px;
+		height: 116px;
+		margin:10px auto;
+		transform:rotate(-10deg);
+		transform-origin:50% bottom;
+		transition:all ease .4s;
+		z-index:100;
+	}
+	.pig.active .p-head{
+		transform:rotate(10deg);
+	}
+	/*
+	================>
+
+		耳朵开始，矩形再变形
+
+		================>
+	*/
+	.ear{
+		position:absolute;
+		width: 15px;
+		height:27px;
+		background-color: #FED2E3;
+		border:2px solid #E2A0C6;
+		border-bottom:none;
+		transform:rotate(-15deg);
+		border-top-left-radius:50%;
+		border-top-right-radius:50%;
+	}
+	.ear-1{
+		transform:rotate(-36deg);
+		left: 13px;
+		top: 12px;
+	}
+	.ear-2{
+		left: 44px;
+		top: 3px;
+		border-top-right-radius:70%;
+		border-bottom-right-radius:60%;
+	}
+	/*
+	================>
+
+		脸！
+
+		================>
+	*/
+	.face{
+		position: absolute;
+		top: 30px;
+		left: 0;
+		width: 97px;
+		height: 90px;
+		background-color: #FED2E3;
+		border:2px solid #E2A0C6;
+		transform:rotate(-4deg);
+		border-radius:50%;
+		border-top-right-radius:30%;
+		border-right:none;
+	}
+	/*
+	================>
+
+		鼻子
+
+		================>
+	*/
+	.nose{
+		position:absolute;
+		left: 100px;
+		top: 28px;
+		width: 28px;
+		height: 31px;
+		background-color: #FED2E3;
+		border:2px solid #E2A0C6;
+		transform:rotateZ(-20deg) rotateY(15deg);
+		border-radius:50%;
+	}
+	.nose::before,
+	.nose::after{
+		position:absolute;
+		left: 5px;
+		top: 11px;
+		content:'';
+		display:block;
+		width: 6px;
+		height: 6px;
+		background-color: #954E86;
+		border-radius:50%;
+	}
+	.nose::after{
+		left:18px;
+		top: 13px;
+	}
+	/*
+	================>
+
+		眼睛
+
+		================>
+	*/
+	.eye{
+		position: absolute;
+		left: 49px;
+		top: 37px;
+		width: 12px;
+		height: 12px;
+		background-color: #fff;
+		border:2px solid #E2A0C6;
+		border-radius:50%;
+	}
+	.eye::after{
+		content:'';
+		display:block;
+		width: 4px;
+		height: 4px;
+		background-color: #000;
+		border-radius:50%;
+		position:absolute;
+		left: 2px;
+		bottom: 2px;
+	}
+	.pig.active .eye{
+		height:14px;
+	}
+	.pig.active .eye::after{
+		left: 3px;
+		bottom: 0;
+	}
+	.eye-2{
+		left: 71px;
+		top: 35px;
+	}
+	.fen{
+		position:absolute;
+		left: 10px;
+		top: 60px;
+		width: 30px;
+		height: 30px;
+		background-color: #FC92D2;
+		border-radius:50%;
+		transform:rotateZ(5deg) rotateY(20deg);
+	}
+	/*
+	================>
+
+		隆鼻
+
+		================>
+	*/
+	.nose-bottom{
+		position:absolute;
+		left: 91px;
+		top: 66px;
+		width: 32px;
+		height: 3px;
+		background-color: #E2A0C6;
+		border-bottom-left-radius:50%;
+		border-bottom-right-radius:50%;
+		transform:rotate(-20deg);
+
+	}
+	/*
+	================>
+
+		再垫一下
+
+		================>
+	*/
+	.nose-top{
+		position:absolute;
+		left: 70px;
+		top: 29px;
+		width: 44px;
+		height: 2px;
+		background-color: #E2A0C6;
+		border-top-left-radius:50%;
+		border-top-right-radius:50%;
+		transform:rotate(-1deg);
+	}
+	/*
+	================>
+
+      再填充下
+
+      ================>
+	*/
+	.eye-nose{
+		position:absolute;
+		left: 77px;
+		top: 11px;
+		width: 28px;
+		height: 31px;
+		border:40px solid transparent;
+		border-top-width:12px;
+		border-bottom-width:5px;
+		/*border-left-color:green;*/
+		border-left-color:#FED2E3;
+		transform:rotate(-21deg);
+	}
+	/*
+	================>
+
+		嘴巴
+
+		================>
+	*/
+	.mouth{
+		position:absolute;
+		left: 44px;
+		top: 55px;
+		width:38px;
+		height:38px;
+		border:4px solid #923377;
+		border-radius:50%;
+		transform:rotateX(20deg);
+	}
+	.mouth::after{
+		position:absolute;
+		left:-10px;
+		bottom:11px;
+		content:'';
+		display:block;
+		width:52px;
+		height:32px;
+		transition:all ease .4s;
+		background-color: #FED2E3;
+		transform:rotate(-10deg);
+	}
+	.pig.active .mouth{
+		transform:rotateX(30deg);
+	}
+	.pig.active .mouth::after{
+		bottom:16px;
+		height:26px;	
+	}
+	/* 
+	================>
+
+		肚子
+
+		================>
+	*/
+	.body{
+		position:absolute;
+		left: 117px;
+		top: 100px;
+		width: 100px;
+		height: 86px;
+		background-color: #DF394F;
+		border-radius:  50%/100% 100% 0 0;
+		border:3px solid #AA223A;
+	}
+	/*
+	================>
+
+       脚
+
+       ================>
+	*/
+	.foot{
+		position:absolute;
+		left: 117px;
+		top: 192px;
+		width:106px;
+		height:50px;
+		background-color: rgba(0,0,0,.4);
+		border-radius:50%;
+		transform: rotateX(60deg);
+	}
+	.leg{
+		position: absolute;
+		left: 25px;
+		top: -25px;
+		width: 6px;
+		height:40px;
+		background-color: #fff;
+	}
+	.leg::after{
+		position:absolute;
+		left: 0;
+		bottom: -8px;
+		content:'';
+		display:block;
+		background-color: #000;
+		width:30px;
+		height:14px;
+		border-radius:38%;
+		transform:rotateY(25deg) skew(-10deg);
+	}
+	.leg-r{
+		left:65px;
+	}
+	/*
+	================>
+
+		胳膊
+
+		================>
+	*/
+	.arm{
+		position:absolute;
+		left: -32px;
+		top: 36px;
+		width: 40px;
+		height: 4px;
+		background-color: #FED2E3;
+		border:2px solid #C9D1E8;
+		border-top-left-radius:20px 4px;
+		border-top-right-radius:20px 4px;
+		transform:rotate(-20deg);
+	}
+	.arm::before,
+	.arm::after{
+		position:absolute;
+		left: 2px;
+		top: -8px;
+		content:'';
+		display:block;
+		width:10px;
+		height:4px;
+		background-color: #FED2E3;
+		border:2px solid #C9D1E8;
+		border-right:none;
+		border-radius:50%;
+		transform:rotate(32deg);
+	}
+	.arm::after{
+		width:6px;
+		left:5px;
+		top:4px;
+		transform:rotate(-42deg);
+	}
+	.arm-r{
+		left: 87px;
+		top: 31px;
+		transform: rotate(14deg);
+	}
+	.arm-r::before,
+	.arm-r::after{
+		left: 27px;
+		top: -8px;
+		transform:rotate(152deg);
+	}
+	.arm-r::after{
+		top:3px;
+		transform:rotate(-130deg);
+	}
+	/*
+	================>
+
+	* 尾巴，没错，css真的写不出来！那就666吧！
+
+	================>
+	*/
+	.tail{
+		position:absolute;
+		left: -23px;
+		bottom: -3px;
+		font-size:26px;
+		font-weight:900;
+		color:#FED2E3;
+		transform:rotate(65deg);
+	}
+	.tail::after{
+		position:absolute;
+		content:'';
+		left: 10px;
+		bottom: 23px;
+		display:block;
+		width:8px;
+		height:4px;
+		background-color: #FED2E3;
+		transform:rotate(103deg);
+
+	}
+	.flow{
+		position:absolute;
+		left: 50px;
+		top: 20px;
+		width:3px;
+		height:12px;
+		background-color: #00AA1F;
+	}
+	.flow::before,
+	.flow::after{
+		position:absolute;
+		left:-4px;
+		top:0;
+		display:block;
+		content:'';
+		width:10px;
+		height:3px;
+		background-color: #DDF831;
+		transform:rotate(20deg);
+		border-radius:50%;
+	}
+	.flow::after{
+		transform:rotate(133deg);
+	}
+	.flow.f-2{
+		left: 80px;
+		top: 13px;
+	}
+	.flow.f-3{
+		left: 280px;
+		top: 26px;
+	}
+	.flow.f-4{
+		left: 340px;
+		top: 33px;
+	}
+	.flow.f-4::before,
+	.flow.f-4::after{
+		background-color: pink;
+	}			
+
+	@keyframes rock{
+		from{
+				transform: rotate(10deg);
+			}
+		to{
+			   transform: rotate(0);
+		}
+	}
+`	
+		var styleBox = document.getElementById('pig_style');
+		var codeBox = document.getElementsByTagName('pre')[0];
+		var pig = document.getElementsByClassName('pig')[0];
+		var count = 0;
+		var currStr = '';
+
+		var timer ;
+		go();
+		function go(){
+			 timer = setInterval(function(){
+				if(count==130){
+					clearInterval(timer);
+					count +=10;
+					setTimeout(function(){
+						go();
+					},2000);
+					return;
+				}
+				codeBox.scrollTop = codeBox.scrollHeight-codeBox.offsetHeight;
+				console.log('str.length=>>'+str.length);
+				console.log('currStr.length=>>'+currStr.length);
+				if(currStr.length+10 >= str.length){
+					clearInterval(timer);
+					an();
+					return;
+				}
+				currStr += str.substr(count,10);
+				styleBox.innerHTML = currStr;
+				codeBox.innerHTML = currStr;
+				count +=10;
+			}, 30);
+
+		}
+
+		function an(){
+			pig.classList.add('active');
+			setTimeout(function(){
+				pig.classList.remove('active');
+			}, 1200);
+		}
+		pig.onmouseenter= function(){
+			this.classList.add('active');
+		}
+		pig.onmouseleave = function(){
+			this.classList.remove('active');
+		}
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>汽油价格</title>
+	<script>
+		// 获取输入框
+		var youhao = prompt("请输入92或95号汽油");
+		// 设置数量空
+		var shuliang = ''
+		// 设置价格空
+		var jiage =''
+		// 输入值为92
+		if (youhao==92) {
+			// 提示输入数量
+			shuliang = prompt("请输入加油升数");
+			// 小于20
+			if (shuliang<20) {
+			// 小于20计算
+				jiage = shuliang*6;
+			}else{
+			// 大于20计算
+				jiage = shuliang*5.9;
+			}
+			// 92最终价格
+			alert("价格:"+jiage+"人民币");
+			// 输入值为95
+		}else if (youhao==95) {
+			// 提示输入数量
+			shuliang = prompt("请输入加油升数");
+			// 小于30
+			if (shuliang<30) {
+			// 小于30计算
+				jiage = shuliang*7;
+			}else{
+			// 大于30计算
+				jiage = shuliang*6.95;
+			}
+			// 最终价格
+			alert("价格:"+jiage+"人民币");
+		}else{
+			// 输入错误的油号提示
+			alert("请输入正确的汽油编号!!!");
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

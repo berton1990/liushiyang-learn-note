@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>年终奖计算</title>
+	<script>
+		// 工作满0年,发月薪的1倍月薪年终奖，如果月薪大于8000，那么就是发1.2倍
+		// 工作满1年,发月薪的1.5倍月薪年终奖，如果月薪大于10000，那么就是发1.7倍
+		// 工作满2年,发月薪的3倍月薪年终奖，如果月薪大于12000，那么就是发3.2倍
+		//1.获取员工年份
+		var year = prompt('请您输入工作年数');
+		//2.获取员工的月薪
+		var monthly = prompt('请输入您的月薪金额');
+		//3.奖金计算结果
+		var bonus = 0;
+		//工作小于1年
+		if (year < 1) {
+			// 月薪低于8000
+			if (monthly < 8000) {
+				// 奖金等于月薪乘以1倍
+				bonus = monthly*1;
+			}else{
+				//否则(高于8000),奖金等于月薪乘以1.2倍
+				bonus = monthly*1.2;
+			}
+		}
+		//工作小于2年
+		if (year < 2) {
+			// 月薪低于10000
+			if (monthly < 10000) {
+				// 奖金等于月薪乘以1.5倍
+				bonus = monthly*1.5;
+			}else{
+				//否则(高于10000),奖金等于月薪乘以1.7倍
+				bonus = monthly*1.7;
+			}
+		}
+		//工作小于3年
+		if (year < 3) {
+			// 月薪低于12000
+			if (monthly < 12000) {
+				// 奖金等于月薪乘以3倍
+				bonus = monthly*3;
+			}else{
+				//否则(高于12000),奖金等于月薪乘以3.2倍
+				bonus = monthly*3.2;
+			}
+		}
+		// 弹出结果
+		alert("您获得奖金"+bonus+"元!");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

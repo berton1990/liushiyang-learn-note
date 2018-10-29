@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户输入一个数，输出因数的个数</title>
+	<script>
+		var count = 0 ;
+		//用户输入一个数，输出因数的个数。
+		var num = prompt('请输入数字');
+		for(var i = 1 ; i <= num ; i++){
+			if (num%i==0) {
+				count ++;
+				console.log(i);
+			}
+		}
+		console.log('一共'+count);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -5,8 +5,22 @@
 	<title>翻转数组,返回一个新数组</title>
 	<script>
 		var arr = [3,5,11,8,7];
-		var rra = arr.reverse();
-		document.write(rra);
+		function reverse(arr) {
+			var arr2 = [];
+			for (var i = arr.length - 1; i >= 0; i--) {
+				arr2.push(arr[i]);
+			}
+			return arr2;
+		}
+		function reverse2(arr){
+			for (var i = 0; i < Math.floor(arr.length/2) ; i++) {
+				var temp = arr[i];
+				arr[i] = arr[arr.length-1-i];
+				arr[arr.length-1-i] = temp;
+			}
+		}
+		reverse2(arr);
+		console.log(arr);
 	</script>
 </head>
 <body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求乘阶的和</title>
+	<script>
+		var n = prompt('请输入number');
+		alert('你求的'+n+'的阶乘的和为:'+total(n));
+		function total (num) {
+			var sum = 0;
+			for(var i = 1 ; i <= num ; i ++){
+				sum += jc(i);
+			}
+			return sum;
+		}
+
+		function jc (n) {
+			if(n==1){
+				return 1;
+			}
+			return n*jc(n-1);
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

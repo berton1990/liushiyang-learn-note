@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2018-11-16作业</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			position: relative;
+			width: 600px;
+			height: 600px;
+			background-color: pink;
+			margin: 100px auto;
+		}
+		.innerbox{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			height: 200px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<!-- 要求拖动innerbox,但不允许innerbox超过box,参照taobao放大镜 -->
+	<div class="box">
+		<div class="innerbox"></div>
+	</div>
+	<script>
+		// 获取内部盒子
+		var innerboxEl = document.getElementsByClassName('innerbox')[0];
+		// 获取外部盒子
+		var boxEl = document.getElementsByClassName('box')[0];
+		// 创建内部盒子被鼠标按下事件函数
+		innerboxEl.onmousedown = function  (event) {
+			// 获取外部盒子的范围值等于页面的X和Y轴减去内部盒子的左侧和顶部值
+			var boxElX = event.pageX - innerboxEl.offsetLeft;
+			var boxElY = event.pageY - innerboxEl.offsetTop;
+			document.onmousemove = function(event){
+				// 外部盒子的左侧值等于页面的X轴减去外部盒子的范围X值
+				var boxLeft = event.pageX-boxElX;
+				// 外部盒子的顶部值等于页面的Y轴减去外部盒子的范围Y值
+				var boxTop = event.pageY-boxElY;
+				// 添加判断:如果外部盒子的左侧小于0,将左侧的值等于0
+				if (boxLeft<0) {
+					boxLeft = 0;
+					// 否则如果外部盒子的左侧大于外部盒子减去内部盒子的值,将左侧的值等于外部盒子减去内部盒子的值
+				}else if (boxLeft>(boxEl.offsetWidth - innerboxEl.offsetWidth)) {
+					boxLeft = boxEl.offsetWidth-innerboxEl.offsetWidth;
+				}
+				if (boxTop<0) {
+					boxTop = 0;
+				}else if (boxTop>(boxEl.offsetHeight - innerboxEl.offsetHeight)) {
+					boxTop = boxEl.offsetHeight-innerboxEl.offsetHeight;
+				}
+				// 重置样式
+				innerboxEl.style.left = boxLeft +'px';
+				innerboxEl.style.top = boxTop + 'px';
+			}
+			innerboxEl.onmouseup = function(){
+				document.onmousemove = null;
+			}
+		}
+	</script>
+</body>
+</html>

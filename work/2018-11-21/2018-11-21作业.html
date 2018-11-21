@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2018-11-21作业</title>
+	<script src="lib/jquery-3.3.1.min.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.banner{
+			position: relative;
+			width: 100%;
+			height: 460px;
+			overflow: hidden;
+		}
+		.left{
+			display: block;
+			float: left;
+			position: relative;
+			left: 155px;
+			top: 100px;
+			text-align: center;
+			line-height: 80px;
+			z-index: 9;
+		}
+		.icon{
+			position: relative;
+			width: 1226px;
+			height: 100%;
+			margin: 0 auto;
+		}
+		.right{
+			display: block;
+			position: absolute;
+			right: 155px;
+			top: 100px;
+			text-align: center;
+			line-height: 80px;
+			z-index: 9;
+		}
+		.left a{
+			display: block;
+			width: 80px;
+			height: 80px;
+			background: rgba(0,0,0,.5);
+		}
+		.right a{
+			display: block;
+			width: 80px;
+			height: 80px;
+			background: rgba(0,0,0,.5);
+		}
+		.banner a:hover{
+			background-color: #fff;
+		}
+	</style>
+	<script>
+		$(function () {
+            //需求：鼠标放入两侧的li中，让中间的ul中对应索引值的li显示出来，其他的隐藏。（右侧的li要+3）
+            //左侧鼠标移入事件
+            $(".left li").mouseenter(function () {
+                //显示对应索引值的中间的li
+                $(".icon li").eq($(this).index()).show().siblings("li").hide();
+            // 鼠标移入左侧li时,图片的li对应转换为jq对象的左侧li下标,显示该li对应的图片,兄弟姐妹的li对应的图片隐藏
+            });
+            // 右侧鼠标移入事件
+            $(".right li").mouseenter(function () {
+                //显示对应索引值的中间的li
+                $(".icon li:eq("+($(this).index()+3)+")").show().siblings("li").hide();
+             // 鼠标移入右侧li时,图片的li对应转换为jq对象的右侧li下标3以后的下标,显示该li对应的图片,兄弟姐妹的li对应的图片隐藏
+            });
+        });
+    </script>
+</head>
+<body>
+	<div class="banner">
+		<ul class="left">
+			<li><a href="#">icon1</a></li>
+			<li><a href="#">icon2</a></li>
+			<li><a href="#">icon3</a></li>
+		</ul>
+
+		<ul class="icon">
+				<li>
+					<a href="#">
+						<img src="img/m1.jpg" width="1226" height="460">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/m2.jpg" width="1226" height="460">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/m3.jpg" width="1226" height="460">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/m4.jpg" width="1226" height="460">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/m5.jpg" width="1226" height="460">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="img/m6.jpg" width="1226" height="460">
+					</a>
+				</li>
+		</ul>
+						
+		<ul class="right">
+			<li><a href="#">icon4</a></li>
+			<li><a href="#">icon5</a></li>
+			<li><a href="#">icon6</a></li>
+		</ul>	
+	</div>
+</body>
+</html>

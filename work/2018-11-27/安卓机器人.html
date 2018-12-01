@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>安卓机器人</title>
+	<style>    
+		body{        
+			margin: 0;        
+			padding: 0;        
+			background-color: #f7f7f7;
+		}    
+		.board{        
+			width: 800px;        
+			height: 600px;        
+			margin: 20px auto;        
+			background-color: #fff;
+		}    
+		.android{        
+			width: 350px;        
+			height: 350px;        
+			margin: 0 auto;        
+			position: relative;        
+			text-align: center;
+		}   
+		.android:hover .head::after{
+			background-color: red;
+		}
+		.android:hover .head::before{
+			background-color: red;
+		}
+		/*脑袋*/    
+		.head{        
+			position: relative;        
+			width: 220px;        
+			height: 110px;        
+			margin: 30px auto;        
+			top: 100px;        
+			border-radius: 100px 100px 0 0;        
+			background-color: #a4ca39;        
+			box-shadow: 5px 5px 10px 5px #666;
+			z-index: 9;
+		    } 
+		/*触角*/
+		.line::after,
+		.line::before{
+			content: '';        
+			display: block;
+			width: 5px;
+			height: 80px;
+			top: 50px;
+			position: absolute;
+			border-radius: 5px; 
+			background-color: #a4ca39;
+			box-shadow: 5px 5px 10px 5px #666;
+		}
+		.line::after{
+			left: 80px;
+			transform: rotate(-30deg);
+			-ms-transform: rotate(-30deg);
+			-moz-transform: rotate(-30deg);
+			-webkit-transform: rotate(-30deg)
+		}
+		.line::before{
+			right: 80px;
+			transform: rotate(30deg);
+			-ms-transform: rotate(30deg);
+			-moz-transform: rotate(30deg);
+			-webkit-transform: rotate(30deg)
+		}
+		/*眼睛*/    
+		.head::before,
+		.head::after{
+			content: '';        
+			display: block;        
+			width: 20px;        
+			height: 20px;        
+			background-color: #fff;        
+			border-radius: 10px;        
+			position: absolute;        
+			top: 40px;
+		}
+		/*眼睛*/    
+		.head::before{        
+			left: 50px;
+		}    
+		.head::after{        
+			right: 50px;
+		}    
+		/*身体*/    
+		.body{        
+			width: 220px;        
+			height: 180px;  
+			top: 80px;      
+			background-color: #a4ca39;        
+			border-radius: 0 0 20px 20px;        
+			position: relative;        
+			margin: 0 auto;        
+			box-shadow: 5px 5px 10px 5px #666;
+			z-index: 9;
+		}    
+		/*两边的手臂*/    
+		.arms::before,
+		.arms::after{        
+			content: '';        
+			display: block;        
+			width: 50px;        
+			height: 150px;        
+			border-radius: 25px;        
+			position: absolute;        
+			background-color: #a4ca39;        
+			top: 15px;
+			z-index: 9;
+		}    
+		/*左手*/    
+		.arms::before{        
+			box-shadow: -5px 5px 10px 0 #666;        
+			top: 195px;        
+			left: 8px;
+			z-index: 9;
+		}    
+		/*右手*/    
+		.arms::after{        
+			right: 8px;  
+			top: 195px;      
+			box-shadow: 5px 5px 10px 0 #666;
+		    }    
+		/*腿部*/    
+		.body::before,
+		.body::after{        
+			content: '';        
+			display: block;        
+			width: 50px;        
+			height: 80px;
+			top: 175px;        
+			border-radius: 0 0 25px 25px;        
+			position: absolute;        
+			bottom: -80px;        
+			background-color: #a4ca39;        
+			box-shadow: 5px 10px 10px 0 #666;
+		}    
+		/*左腿*/    
+		.body::before{        
+			left: 20px;
+		}    
+		/*右腿*/    
+		.body::after{        
+			right: 20px;
+		}
+		.android:hover 
+	</style>
+
+</head>
+<body>
+	<div class="board">        
+		<div class="android">
+			<div class="line"></div>                       
+			<div class="head"></div> 
+			<div class="body"></div>            
+			<div class="arms"></div>        
+		</div>
+	</div>
+</body>
+</html>

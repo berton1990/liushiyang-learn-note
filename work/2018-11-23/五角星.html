@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五角星</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.star{
+			color: orange;
+			margin-left: 20px;
+			font-size: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span class="star">☆</span>
+		<span class="star">☆</span>
+		<span class="star">☆</span>
+		<span class="star">☆</span>
+		<span class="star">☆</span>
+	</div>
+	<script src="lib/jquery-3.3.1.min.js"></script>
+	<script>
+		// star被hover时,变换为实心,同时自身之前的star(包含自己)全部变成实心
+		$('.star').mouseenter(function  () {
+			$(this).text('★').prevAll().text('★');
+			// 鼠标离开star时,变换为空心,同时自身之后的star(不包含自己)全部变成空心
+			$(this).nextAll().text('☆');
+		})
+		// 鼠标离开box时,变换为空心
+		// $('.box').mouseleave(function () {
+		// 	$('.star').text('☆');	
+		// })
+		// 创建点击事件
+		$('.star').click(function  () {
+			$(this).text('★').prevAll().text('★');
+			$(this).nextAll().text('☆');
+		})
+	</script>
+</body>
+</html>

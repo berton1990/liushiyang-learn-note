@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>扑克牌打开</title>
+	<style>
+		.box{
+			position: relative;
+			margin: 100px auto;
+			width: 300px;
+			height: 450px;
+		}
+		.box img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			box-shadow: 5px 5px 10px 5px rgba(0,0,0,.1);
+			transition:all 1s ease;
+			transform-origin: center bottom;
+		}
+		.box:hover .img-1{
+			transform:rotate(-60deg);
+		}
+		.box:hover .img-2{
+			transform:rotate(-50deg);
+		}
+		.box:hover .img-3{
+			transform:rotate(-40deg);
+		}
+		.box:hover .img-4{
+			transform:rotate(-30deg);
+		}
+		.box:hover .img-5{
+			transform:rotate(-20deg);
+		}
+		.box:hover .img-6{
+			transform:rotate(-10deg);
+		}
+		.box:hover .img-8{
+			transform:rotate(10deg);
+		}
+		.box:hover .img-9{
+			transform:rotate(20deg);
+		}
+		.box:hover .img-10{
+			transform:rotate(30deg);
+		}
+		.box:hover .img-11{
+			transform:rotate(40deg);
+		}
+		.box:hover .img-12{
+			transform:rotate(50deg);
+		}
+		.box:hover .img-13{
+			transform:rotate(60deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img class="img-1" src="img/pk1.png" alt="">
+		<img class="img-2" src="img/pk2.png" alt="">
+		<img class="img-3" src="img/pk1.png" alt="">
+		<img class="img-4" src="img/pk1.png" alt="">
+		<img class="img-5" src="img/pk2.png" alt="">
+		<img class="img-6" src="img/pk1.png" alt="">
+		<img class="img-7" src="img/pk2.png" alt="">
+		<img class="img-8" src="img/pk1.png" alt="">
+		<img class="img-9" src="img/pk2.png" alt="">
+		<img class="img-10" src="img/pk1.png" alt="">
+		<img class="img-11" src="img/pk2.png" alt="">
+		<img class="img-12" src="img/pk1.png" alt="">
+		<img class="img-13" src="img/pk1.png" alt="">
+	</div>
+</body>
+</html>

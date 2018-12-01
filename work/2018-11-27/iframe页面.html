@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iframe页面</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		ul{
+			list-style: none;
+		}
+		.main{
+			width: 1000px;
+			height: 500px;
+			background-color: #888;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		.aside{
+			float: left;
+			width: 200px;
+			height: 100%;
+			background-color: #333;
+		}
+		.iframe-box{
+			float: left;
+			width: 800px;
+			height: 100%;
+		}
+		.iframe-item{
+			width: 100%;
+			height: 100%;
+		}
+		.aside .nav-item{
+			display: block;
+			width: 100%;
+			height: 40px;
+			background-color: #888;
+			font-size: 20px;
+			line-height: 40px;
+			text-decoration: none;
+			color: #fff;
+			margin-bottom: 10px;
+			text-indent: 20px;
+		}
+		.aside .nav-item:hover{
+			color: orange;
+		}
+		.aside .nav-item.active{
+			color:orange;
+		}
+		.ul .top-lis{
+		 	width: 100%;
+		 	height: 40px;
+		 	font-size: 20px;
+			display: block;
+			float: left;
+			width: 80px;
+			height: 40px;
+			background-color: #fff;
+			line-height: 40px;
+			border-right: 1px solid #333;
+			text-indent: 20px;
+		} 
+		.ul .top-lis:hover{
+			color: #fff;
+			background-color: orange;
+		}
+		.ul .top-lis.active{
+			color: #fff;
+			background-color: orange;
+		}
+		.close{
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="aside">
+			<a class="nav-item" data-iframe-id="baidu" data-url="http://www.baidu.com" href="javascript:;">百度</a>
+			<a class="nav-item" data-iframe-id="taobao" data-url="http://www.taobao.com" href="javascript:;">淘宝</a>
+			<a class="nav-item" data-iframe-id="bufan" data-url="http://www.bufanui.com" href="javascript:;">不凡</a>
+		</div>
+		<div class="iframe-box">
+			<!-- <iframe class="iframe-item" src="" border="0" frameborder="0"></iframe> -->
+			<!-- <div class="iframe-top"> -->
+				<ul class="ul"></ul>
+			<!-- </div> -->
+		</div>	
+		
+	</div>
+	<script src="lib/jquery-3.3.1.min.js"></script>
+	<script>
+		$('.nav-item').click(function  () {
+			//移除原本的active样式
+			$('.nav-item.active').removeClass('active');
+			//再给自己添加active样式
+			$(this).addClass('active');
+			//创建iframe之前判断之前有没有一个 iframe_xx的id存在
+			var tempId = '#iframe_'+$(this).data('iframe-id');
+			// jquery对于查找到的对象 会有length!=0的属性
+			// 但是原生的方法 document.getElementsByClassName('.abc') == null;
+			// 判断 如果id的长度不是0
+			if ($(tempId).length!=0) {
+				// 隐藏其他,显示自己
+				$('.iframe-item').hide();
+				$(tempId).show();
+				// 否则 创建新的iframe
+			}else {
+				var str = '<iframe class="iframe-item" id="iframe_'+$(this).data('iframe-id')+'" src="'+$(this).data('url')+'" border="0" frameborder="0"></iframe>';
+				$('.iframe-item').hide();
+				var str2 = '<li class="top-lis" onclick="foo(this)" data-top="'+$(this).data('iframe-id')+'">'+$(this).text()+'<a href="javascript:;"  class="close">x</a>'+'</li>'
+				//追加
+				$('.iframe-box').append($(str));
+				$('.ul').append(str2);
+			}
+		})
+		// 点击li隐藏自己,显示其他li
+		function foo(obj){
+			var idstr=$(obj).data('top');
+			$('.iframe-item').hide();
+			$('#iframe_'+idstr).show();
+		}
+		// 点击close关闭当前页面
+		//事件委托  
+		$('.ul').on('click','.close',function(){
+			var iframeId = '#iframe_'+$(this).parent().data('top');
+			$(this).parent().remove();
+			$(iframeId).remove();
+			//显示内容
+			var obj = $('.ul').children().last();
+			//说明存在
+			if(obj.length !=0){
+				var iframeId2 = '#iframe_'+obj.data('top');
+				$(iframeId2).show();
+			}
+		})
+		
+	</script>
+</body>
+</html>

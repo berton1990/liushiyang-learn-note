@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jq方式实现的遮罩层跟随</title>
+	<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			.box{
+				width: 100%;
+				height: 220px;
+			}
+			.box .innerbox{
+				position: relative;
+				width: 1320px;
+				height: 100%;
+				margin: 0 auto;
+			}
+			.box .innerbox .img{
+				float: left;
+				width: 220px;
+				height: 100%;
+			}
+			.box .innerbox .mask{
+				display: none;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 220px;
+				height: 100%;
+				background-color: rgba(0,0,0,.3);
+			}
+			.box .innerbox:hover .mask{
+				display: block;
+			}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="innerbox">
+			<div class="mask"></div>
+			<ul class="imgs">
+				<li class="img"><img  src="img/Apple1.jpg" alt=""></li>
+				<li class="img"><img  src="img/Apple2.jpg" alt=""></li>
+				<li class="img"><img  src="img/Apple3.jpg" alt=""></li>
+				<li class="img"><img  src="img/Apple4.jpg" alt=""></li>
+				<li class="img"><img  src="img/Apple5.jpg" alt=""></li>
+				<li class="img"><img  src="img/Apple6.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+	<script src="lib/jquery-3.3.1.min.js"></script>
+
+	<script>
+		$('.img').mouseenter(function  () {
+			var target = $(this).position();
+			$('.mask').animate({
+				left:target.left
+			});
+		})
+	</script>
+</body>
+</html>

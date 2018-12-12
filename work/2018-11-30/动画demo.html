@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画demo</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 100%;
+			height: 1080px;
+			background: url(img/bj.jpg) no-repeat;
+		}
+		.box{
+			position: relative;
+			width: 600px;
+			height: 462px;
+			left: 790px;
+			top: 600px;
+			perspective: 1000px;
+			transform-style: preserve-3d;
+		}
+		.qq{
+			position: absolute;
+			left: 130px;
+			top: 60px;
+			animation: ballonFly 15s linear 1s infinite both;
+		}
+		.box2{
+			position: absolute;
+			left: 400px;
+			top: 300px;
+			width: 300px;
+			height: 300px;
+			animation: move2 2s ease 1s both;
+		}
+		.box2 .icon1,
+		.box2 .icon2,
+		.box2 .icon3,
+		.box2 .icon4,
+		.box2 .icon5,
+		.box2 .icon6{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 42px;
+			height: 42px;
+			animation: floatRandom 4s linear infinite both;
+		}
+		.box2 .icon2{
+			/*left/top优先级更高*/
+			left:auto;
+			top: auto;
+			right: 158px;
+			bottom: 158px;
+		}
+		.box2 .icon3{
+			left:auto;
+			top: auto;
+			right: 48px;
+			bottom: 48px;
+		}
+		.box2 .icon4{
+			left:auto;
+			top: auto;
+			right: 0;
+			bottom: 0;
+		}
+		.box2 .icon5{
+			left:auto;
+			top: auto;
+			right: 108px;
+			bottom: 108px;
+		}
+		.box2 .icon6{
+			left:auto;
+			top: auto;
+			right: 200px;
+			bottom: 200px;
+		}
+		@keyframes ballonFly {
+			0%{transform:translate3d(0,0,100px) scale3d(1.1,1.1,2.2)}
+		    20%{transform:translate3d(110px,-30px,200px) scale3d(1,1,1)}
+		    40%{transform:translate3d(155px,-70px,0) scale3d(1,1,.9)}
+		    60%{transform:translate3d(-40px,-15px,-120px) scale3d(1,1,.8)}
+		    80%{transform:translate3d(-60px,-15px,-100px) scale3d(1,1,1)}
+		    100%{transform:translate3d(0,0,100px) scale3d(1.1,1.1,1.2)}
+		}
+		@keyframes move2 {
+			0%{
+				transform: scale(0) rotate(0);
+			}
+			100%{
+				transform: scale(1) rotate(360deg);
+			}
+		}
+		@keyframes floatRandom{
+			0% {
+			    transform: translate(0,0);
+			}
+			25% {
+			    transform: translate(-5px,-3px);
+			}
+			50% {
+			    transform: translate(-8px,0);
+			}
+			75% {
+			    transform: translate(-5px,5px);
+			}
+			100% {
+			    opacity: 1;
+			    transform: translate(0,0);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img class="h5" src="img/block.png" alt="">
+		<img class="qq" src="img/ballon.png" alt="">
+	</div>
+	<div class="box2">
+		<div class="icon1"><img src="img/facebook.png" alt=""></div>
+		<div class="icon2"><img src="img/QQ.png" alt=""></div>
+		<div class="icon3"><img src="img/share.png" alt=""></div>
+		<div class="icon4"><img src="img/twitter.png" alt=""></div>
+		<div class="icon5"><img src="img/weibo.png" alt=""></div>
+		<div class="icon6"><img src="img/wechat.png" alt=""></div>
+	</div>
+</body>
+</html>

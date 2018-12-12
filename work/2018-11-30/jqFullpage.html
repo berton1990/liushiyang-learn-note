@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqFullpage</title>
+	<link rel="stylesheet" href="lib/jq-fullpage/jquery.fullpage.css">
+	<style>
+		.section{
+			font-family: 'mzd';
+			font-size: 100px;
+			color: #fff;
+			text-align: center;
+		}
+		#fullpage .section:nth-child(1){
+			background: url(img/banner1.jpg) no-repeat center;
+		}
+		#fullpage .section:nth-child(2){
+			background: url(img/banner2.jpg) no-repeat center;
+		}
+		#fullpage .section:nth-child(3){
+			background: url(img/banner3.jpg) no-repeat center;
+		}
+		#fullpage .section:nth-child(4){
+			background: url(img/banner4.jpg) no-repeat center;
+		}
+		#fullpage .section:nth-child(5){
+			background: url(img/banner5.jpg) no-repeat center;
+		}
+		@font-face {
+	      font-family: 'mzd';
+	      src: url('font/mzdzt.ttf');
+	    }
+	</style>
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section">第一张</div>
+		<div class="section">第二张</div>
+		<div class="section">第三张</div>
+		<div class="section">第四张</div>
+		<div class="section">第五张</div>
+	</div>
+	<script src="lib/jquery-3.2.1.min.js"></script>
+	<script src="lib/jq-fullpage/jquery.fullpage.min.js"></script>
+	<script>
+		$('#fullpage').fullpage({
+			//options here
+			autoScrolling:true,
+			scrollHorizontally: true
+		});
+	</script>
+</body>
+</html>
